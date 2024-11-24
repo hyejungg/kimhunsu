@@ -4,20 +4,20 @@
   "version": "1.0",
   "permissions": ["activeTab", "notifications", "scripting"],
   "background": {
-    "service_worker": "src/background/index.js"
+    "service_worker": "src/background/index.js" // 서비스 워커가 백그라운드에서 실행될 JavaScript 파일
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["src/content/index.js"]
+      "matches": ["<all_urls>"],  // 이 스크립트가 적용될 URL 패턴 (모든 url)
+      "js": ["src/content/index.js"] // JavaScript 파일
     }
   ],
   "externally_connectable": {
-    "matches": ["*://localhost/*"]
+    "matches": ["*://localhost/*"] // 확장 프로그램과 외부 웹페이지 간의 통신 가능 여부 (localhost로 실행 중인 모든 URL에서 연결이 가능)
   },
   "action": {
-    "default_popup": "index.html",
-    "default_icon": "/icons/icon1.png"
+    "default_popup": "index.html", //  아이콘을 클릭하면 표시될 팝업 파일
+    "default_icon": "/icons/icon1.png" // 확장 프로그램 아이콘
   },
   "icons": {
     "1": "/icons/icon1.png",
