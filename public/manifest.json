@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "김훈수씨",
+  "version": "1.0",
+  "permissions": ["activeTab", "notifications", "scripting"],
+  "background": {
+    "service_worker": "src/background/index.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/index.js"]
+    }
+  ],
+  "externally_connectable": {
+    "matches": ["*://localhost/*"]
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "/icons/icon1.png"
+  },
+  "icons": {
+    "1": "/icons/icon1.png",
+    "2": "/icons/icon2.jpg",
+    "3": "/icons/icon3.jpg",
+    "4": "/icons/icon4.jpg",
+    "5": "/icons/icon5.jpg"
+  }
+}
