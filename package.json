@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite build --watch",
-    "build": "bestzip dist.zip dist/",
+    "dev": "vite",
+    "dev:extension": "vite build --watch",
+    "build": "vite build",
+    "build:extension": "bestzip dist.zip dist/",
     "preview": "vite preview"
   },
   "dependencies": {
