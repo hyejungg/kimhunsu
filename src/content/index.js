@@ -10,21 +10,19 @@ document.addEventListener('click', (event) => {
         value: event.target.outerHTML
     };
 
-    clearTimeout(debounceTimeout); // 기존 타이머 취소
+    clearTimeout(debounceTimeout);
     debounceTimeout = setTimeout(() => {
         console.log('@@ Debounced event triggered');
-        // 클릭 정보를 백그라운드 스크립트로 전달
         chrome.runtime.sendMessage({
             type: 'click',
             data: elementInfo
         });
-    }, 6000); // 6000ms (60s) 지연
+    }, 6000); // 60s
 });
 
 // 입력 감지
 document.addEventListener('keydown', (event) => {
     console.log('@@ eventListener [keydown]');
-    // 현재 입력 중인 요소를 감지 (input 또는 textarea)
     const activeElement = document.activeElement;
 
     if (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA') {
@@ -35,8 +33,6 @@ document.addEventListener('keydown', (event) => {
                 classList: Array.from(activeElement.classList),
                 value: activeElement.value,
             };
-
-            // 입력된 값을 백그라운드 스크립트로 전달
             chrome.runtime.sendMessage({
                 type: 'search',
                 data: elementInfo
